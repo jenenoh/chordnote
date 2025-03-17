@@ -22,6 +22,8 @@ export interface Post {
   excerpt?: string;
   /**  */
   image?: ImageMetadata | string;
+  
+  additionalHeadline?: string;
 
   /**  */
   category?: Taxonomy;
@@ -275,6 +277,7 @@ export interface Steps extends Omit<Headline, 'classes'>, Widget {
 
 export interface Content extends Omit<Headline, 'classes'>, Widget {
   content?: string;
+  additionalHeadline?: string;
   image?: string | unknown;
   items?: Array<Item>;
   columns?: number;

@@ -1,244 +1,184 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import Prices from '~/components/widgets/Pricing.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Features3 from '~/components/widgets/Features3.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
+
 const metadata = {
-  title: 'Pricing',
+  title: 'About Page',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
 
-  <HeroText
-    tagline="Pricing"
-    title="Stellar Pricing for Every Journey"
-    subtitle="Choose the perfect plan that aligns with your cosmic goals."
-  />
+  <!-- Hero2 Widget ******************* -->
 
-  <!-- Pricing Widget ******************* -->
+  <Hero2
+    tagline="About Chordnote"
+    title="Why we created Chordnote"
+    subtitle={`College life is filled with challenges—academic stress, financial pressures, and personal responsibilities—all of which contribute to high levels of anxiety, stress, and even depression. In fact, studies show that <span class="font-bold">44% of college students experience symptoms of depression</span> , yet many do not seek help due to stigma or lack of access to mental health resources. At Chordnote, we believe that music is more than just entertainment—it is a powerful tool for emotional well-being. Our app is designed to make mental health support more accessible by using AI-driven music therapy to help students regulate their emotions in a way that feels natural, engaging, and effective.`}    actions={[{ variant: 'primary', target: '_blank', text: 'Read More', href: '/' }]}
+    image={{
+      src: '~/assets/images/student.png',
+      alt: 'AstroWind Hero Image',
+    }}
+  >
+  </Hero2>
 
-  <Prices
-    title="Our prices"
-    subtitle="Only pay for what you need"
-    prices={[
-      {
-        title: 'basic',
-        subtitle: 'Optimal choice for personal use',
-        price: 29,
-        period: 'per month',
-        items: [
-          {
-            description: 'Etiam in libero, et volutpat',
-          },
-          {
-            description: 'Aenean ac nunc dolor tristique',
-          },
-          {
-            description: 'Cras scelerisque accumsan lib',
-          },
-          {
-            description: 'In hac habitasse',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-      },
-      {
-        title: 'standard',
-        subtitle: 'Optimal choice for small teams',
-        price: 69,
-        period: 'Per Month',
-        items: [
-          {
-            description: 'Proin vel laoreet',
-          },
-          {
-            description: 'Ut efficitur habitasse egestas',
-          },
-          {
-            description: 'Volutpat hac curabitur',
-          },
-          {
-            description: 'Pellentesque blandit ut nibh',
-          },
-          {
-            description: 'Donec fringilla sem',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-        hasRibbon: true,
-        ribbonTitle: 'popular',
-      },
-      {
-        title: 'premium',
-        subtitle: 'Optimal choice for companies',
-        price: 199,
-        period: 'Per Month',
-        items: [
-          {
-            description: 'Curabitur suscipit risus',
-          },
-          {
-            description: 'Aliquam habitasse malesuada',
-          },
-          {
-            description: 'Suspendisse sit amet blandit',
-          },
-          {
-            description: 'Suspendisse auctor blandit dui',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-      },
-    ]}
-  />
+  <!-- Content Widget **************** -->
 
-  <!-- Features3 Widget ************** -->
+  <Content
+    title="What We Discovered"
+    subtitle="To ensure Chordnote truly meets students’ needs, we surveyed college students (ages 18-26) about their mental health and how they use music. Here’s what we found:"
+    additionalHeadline={`
+      <span class="text-primary font-bold text-5xl">82.5%</span> reported experiencing <span class="text-primary font-bold">stress</span>, <span class="text-primary font-bold">anxiety</span>, or <span class="text-primary font-bold">depression</span> during college.<br>
+      <span class="text-primary font-bold text-5xl">93%</span> said they use <span class="text-primary font-bold">music</span> to help regulate emotions like stress, anxiety, sadness, and happiness.
+    `}
+    >
 
-  <Features3
-    title="Price-related features"
-    subtitle="Discover the advantages of choosing our plans"
-    columns={2}
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent={true}
     items={[
       {
-        title: 'Tiered Pricing Plans',
-        description: 'Choose from a range of pricing plans designed to accommodate different budgets and requirements.',
-        icon: 'tabler:stairs',
+        title: '88% listen while studying',
+        icon: 'tabler:ballpen',
       },
       {
-        title: 'Transparent Pricing',
-        description: 'Clearly displayed pricing details for each plan, with no hidden costs or unexpected charges.',
-        icon: 'tabler:flip-vertical',
+        title: '80% use music for working out',
+        icon: 'tabler:barbell',
       },
       {
-        title: 'Secure Payment Methods',
-        description: 'Secure payment gateways to protect your financial information during transactions.',
-        icon: 'tabler:shield-lock',
-      },
-      {
-        title: 'Instant Access',
-        description: `Immediate access to your chosen plan's features and templates upon subscription.`,
-        icon: 'tabler:accessible',
-      },
-      {
-        title: 'Upgrade Value',
-        description: 'Upgrade to higher-tier plans to unlock more features and benefits for an enhanced experience.',
-        icon: 'tabler:chevrons-up',
-      },
-      {
-        title: '24H support',
-        description: 'Questions answered via live chat, email or phone, every calendar day.',
-        icon: 'tabler:headset',
-      },
+      title: '60% rely on it for better sleep',
+      icon: 'tabler:zzz',
+    },
     ]}
-    classes={{ container: 'max-w-5xl' }}
-  />
+    image={{
+      src: 'https://images.unsplash.com/photo-1531973486364-5fa64260d75b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1658&q=80',
+      alt: 'SaaS Businesses Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        How students incorporate music into their daily lives:
+      </h3>
+    </Fragment>
 
-  <!-- Steps Widget ****************** -->
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
-  <Steps
-    title="A guided journey from plans to creativity"
-    tagline="simplified process"
-    isReversed={true}
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
     items={[
       {
-        title: 'Explore plans',
-        icon: 'tabler:number-1',
+        title: '70% Lyrical Music',
+        icon: 'tabler:playlist',
       },
       {
-        title: 'Select a plan',
-        icon: 'tabler:number-2',
+        title: '40% Instrumental',
+        icon: 'tabler:piano',
       },
       {
-        title: 'Sign Up / Log In',
-        icon: 'tabler:number-3',
+        title: '35% Beats & Rhythm-Based Tracks',
+        icon: 'tabler:music',
       },
       {
-        title: 'Review order',
-        icon: 'tabler:number-4',
-      },
-      {
-        title: 'Enter payment details',
-        icon: 'tabler:number-5',
-      },
-      {
-        title: 'Confirmation',
-        icon: 'tabler:number-6',
-      },
-      {
-        title: 'Download and start using the template(s)',
-        icon: 'tabler:number-7',
+        title: 'Most commonly listened-to genres:',
+        description: 'Pop, R&B, and Classical',
+        icon: 'tabler:file-music',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
+      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Portfolio Image',
     }}
-  />
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Music preferences:
+      </h3>
+    </Fragment>
 
-  <!-- FAQs Widget ******************* -->
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
 
-  <FAQs
-    title="Pricing FAQs"
-    subtitle="Choosing the right plan is important, and we're here to answer your questions. If you have queries about our pricing options, you're in the right place."
-    columns={1}
+  <!-- Content Widget **************** -->
+
+  <Content
     items={[
       {
-        title: 'Do the plans come with customer support?',
-        description:
-          'Absolutely, all plans include access to our dedicated customer support to assist you with any queries or concerns.',
+        title: '80% use music to focus, relax, and boost mood.',
+        icon: 'tabler:mood-happy-filled',
       },
       {
-        title: 'Is there a trial period for the different plans?',
-        description:
-          "Unfortunately, we don't offer trial periods for the plans. However, you can check out our demo section to preview the quality of our templates.",
+        title: '85% want a mood tracker to see emotional changes.',
+        icon: 'tabler:chart-bar-popular',
       },
       {
-        title: 'Can I switch between plans?',
-        description:
-          'Certainly! You can easily upgrade or downgrade your plan, at any time, to find the one that best suits your evolving requirements.',
-      },
-      {
-        title: 'What payment methods do you accept?',
-        description:
-          'We accept major credit cards and online payment methods to ensure a convenient and secure transaction process.',
-      },
-      {
-        title: 'Are there any hidden fees beyond the displayed cost?',
-        description:
-          'No, the subscription cost covers all the features and templates listed under each plan. There are no hidden fees or extra charges.',
+        title: '75% find an AI chatbot helpful for curating playlists.',
+        icon: 'tabler:message-chatbot-filled',
       },
     ]}
-  />
+    image={{
+      src: 'https://images.unsplash.com/photo-1514621166532-aa7eb1a3a2f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Small Business Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Why a personalized approach matters::
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <section class="bg-blue-50 dark:bg-slate-800 py-16 px-6 text-center transition-colors duration-300">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-gray-700 dark:text-gray-300 text-2xl mb-6">
+        We found that music plays a crucial role in emotional well-being for college students. However, existing platforms lack a truly personalized and interactive approach. Chordnote bridges this gap by using AI-driven mood detection, curated playlists, and mood tracking—making music therapy more accessible, effective, and tailored to individual needs.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission Widget *********** -->
+
+  <section class="bg-transparent dark:bg-transparent py-16 px-6 text-center transition-colors duration-300">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-5xl font-bold text-gray-900 dark:text-white mb-4">Our Mission</h2>
+      <p class="text-gray-700 dark:text-gray-300 text-3xl font-medium mb-6">
+        Our mission at Chordnote is to help college students manage stress and emotions through personalized, AI-driven music therapy.
+      </p>
+    </div>
+  </section>
 
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
-    title="Ready to boost your projects?"
-    subtitle="Join our community of satisfied customers who have transformed their work with our templates."
     actions={[
       {
         variant: 'primary',
-        text: 'Get started now',
+        text: 'Meet the Team',
         href: '/',
       },
     ]}
+    title="The People Behind Chordnote"
+    subtitle="A team driven by a passion for music, mental wellness, and technology."
   />
 </Layout>

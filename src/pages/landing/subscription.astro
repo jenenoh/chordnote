@@ -1,40 +1,91 @@
 ---
-import Layout from '~/layouts/LandingLayout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 
-import Hero2 from '~/components/widgets/Hero2.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import jennyImg from '~/assets/images/jenny.jpeg';
+import sanjanaImg from '~/assets/images/sanjana.jpg';
+
 
 const metadata = {
-  title: 'Subscription Landing Page Demo',
+  title: 'Meet the Team Page',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero2 Widget ******************* -->
+  <!-- Hero Widget ******************* -->
 
-  <Hero2
-    tagline="Subscription Landing Demo"
-    title="Subscription Landing Page: Turn Casual Browsers into Loyal Subscribers!"
-    subtitle="Unlock the formula for a Subscription Landing Page that keeps your audience coming back for more."
-    actions={[
-      { variant: 'primary', text: 'Call to Action', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-      { text: 'Learn more', href: '#' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1593510987046-1f8fcfc512a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Ironic image associated with canceling a subscription. Subscription Landing Page Demo',
+  <Hero
+    tagline="Meet the Team"
+  >
+    <Fragment slot="title">
+      The Minds Behind Chordnote
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      At Chordnote, we are a team of designers, developers, and researchers with a shared passion for music and mental wellness. Our goal is to create an app that helps students manage stress and emotions through personalized, AI-driven music therapy.
+    </Fragment>
+  </Hero>
+
+  <!-- Team Section -->
+  <section class="py-16 px-6 bg-blue-50 dark:bg-slate-800 text-center">
+    <h2 class="text-5xl font-bold text-gray-900 dark:text-white mb-12">Team 2</h2>
+
+    <div class="flex flex-wrap justify-center gap-8">
+      <!-- Team Member 1 -->
+      <div class="w-64 text-center">
+        <img src={sanjanaImg.src} alt="Team Member 1" class="w-64 h-64 object-cover rounded-full shadow-lg mx-auto">
+        <h3 class="mt-4 text-2xl font-bold text-gray-900 dark:text-white">Sanjana Ananda</h3>
+        <p class="text-lg text-gray-600 dark:text-gray-400">Team Lead</p>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="w-64 text-center">
+        <img src={sanjanaImg.src} alt="Team Member 2" class="w-64 h-64 object-cover rounded-full shadow-lg mx-auto">
+        <h3 class="mt-4 text-2xl font-bold text-gray-900 dark:text-white">Irene Aguilar Gomez</h3>
+        <p class="text-lg text-gray-600 dark:text-gray-400">Product Lead</p>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="w-64 text-center">
+        <img src={sanjanaImg.src} alt="Team Member 3" class="w-64 h-64 object-cover rounded-full shadow-lg mx-auto">
+        <h3 class="mt-4 text-2xl font-bold text-gray-900 dark:text-white">Caitlyn Le</h3>
+        <p class="text-lg text-gray-600 dark:text-gray-400">UX Lead</p>
+      </div>
+
+      <!-- Team Member 4 -->
+      <div class="w-64 text-center">
+        <img src={jennyImg.src} alt="Team Member 4" class="w-64 h-64 object-cover rounded-full shadow-lg mx-auto">
+        <h3 class="mt-4 text-2xl font-bold text-gray-900 dark:text-white">Jenny Noh</h3>
+        <p class="text-lg text-gray-600 dark:text-gray-400">CTO</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Reach out to us"
+    subtitle="Have questions? Feel free to contact us using the form below. We're here to help!"
+    callToAction={{
+      text: 'Contact us',
+      href: '/',
     }}
-  />
-
-  <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
-    actions={[
+    items={[
       {
-        variant: 'primary',
-        text: 'Download Template',
-        href: 'https://github.com/onwidget/astrowind',
-        icon: 'tabler:download',
+        title: 'Email us',
+        description: 'contact@support.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Call us',
+        description: '+1 (234) 567-890',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Follow us',
+        description: '@example',
+        icon: 'tabler:brand-twitter',
       },
     ]}
   />

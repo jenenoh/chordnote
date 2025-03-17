@@ -1,9 +1,26 @@
 ---
 import { SITE } from 'astrowind:config';
+import lightLogo from '~/assets/images/chordnote-light.svg';
+import darkLogo from '~/assets/images/chordnote-dark.svg';
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  🚀 {SITE?.name}
+<span class="relative flex items-center">
+  <!-- Light Mode Logo -->
+  <img
+    src={lightLogo.src}
+    alt="ChordNote Light Logo"
+    class="w-7 h-7 block dark:hidden"
+  />
+
+  <!-- Dark Mode Logo -->
+  <img
+    src={darkLogo.src}
+    alt="ChordNote Dark Logo"
+    class="w-7 h-7 hidden dark:block"
+  />
+
+  <span class="ml-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
+    {SITE?.name}
+  </span>
 </span>
+

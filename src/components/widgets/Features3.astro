@@ -1,21 +1,13 @@
 ---
 import Headline from '~/components/ui/Headline.astro';
-import ItemGrid from '~/components/ui/ItemGrid.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Image from '~/components/common/Image.astro';
 import type { Features as Props } from '~/types';
 
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline = await Astro.slots.render('tagline'),
-  image,
   items = [],
-  columns,
-  defaultIcon,
-  isBeforeContent,
-  isAfterContent,
-
   id,
   isDark = false,
   classes = {},
@@ -26,45 +18,53 @@ const {
 <WidgetWrapper
   id={id}
   isDark={isDark}
-  containerClass={`${isBeforeContent ? 'md:pb-8 lg:pb-12' : ''} ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${
-    classes?.container ?? ''
-  }`}
+  containerClass={`${classes?.container ?? ''}`}
   bg={bg}
 >
   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
 
-  <div aria-hidden="true" class="aspect-w-16 aspect-h-7">
-    {
-      image && (
-        <div class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg">
-          {typeof image === 'string' ? (
-            <Fragment set:html={image} />
-          ) : (
-            <Image
-              class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg"
-              width="auto"
-              height={320}
-              widths={[400, 768]}
-              layout="fullWidth"
-              {...image}
-            />
-          )}
-        </div>
-      )
-    }
-  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+    {items.map((item) => (
+      <div class="flex flex-col items-center text-center">
+        
+        {item.icon === 'tabler:circle-number-1-filled' && (
+          <span class="text-primary mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="icon">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10s-10 -4.477 -10 -10s4.477 -10 10 -10zm.994 5.886c-.083 -.777 -1.008 -1.16 -1.617 -.67l-.084 .077l-2 2l-.083 .094a1 1 0 0 0 0 1.226l.083 .094l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l.293 -.293v5.586l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-8l-.006 -.114z"/>
+            </svg>
+          </span>
+        )}
 
-  <ItemGrid
-    items={items}
-    columns={columns}
-    defaultIcon={defaultIcon}
-    classes={{
-      container: 'mt-12',
-      panel: 'max-w-full sm:max-w-md',
-      title: 'text-lg font-semibold',
-      description: 'mt-0.5',
-      icon: 'flex-shrink-0 mt-1 text-primary w-6 h-6',
-      ...((classes?.items as object) ?? {}),
-    }}
-  />
+        {item.icon === 'tabler:circle-number-2-filled' && (
+          <span class="text-primary mb-4">
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="48"  height="48"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-circle-number-2">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10s-10 -4.477 -10 -10s4.477 -10 10 -10zm1 5h-3l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h3v2h-2l-.15 .005a2 2 0 0 0 -1.844 1.838l-.006 .157v2l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h3l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007h-3v-2h2l.15 -.005a2 2 0 0 0 1.844 -1.838l.006 -.157v-2l-.005 -.15a2 2 0 0 0 -1.838 -1.844l-.157 -.006z" /></svg>
+          </span>
+        )}
+
+        {item.icon === 'tabler:circle-number-3-filled' && (
+          <span class="text-primary mb-4">
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="48"  height="48"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-circle-number-3">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10 -10 10s-10 -4.477 -10 -10s4.477 -10 10 -10zm1 5h-2l-.15 .005a2 2 0 0 0 -1.85 1.995a1 1 0 0 0 1.974 .23l.02 -.113l.006 -.117h2v2h-2l-.133 .007c-1.111 .12 -1.154 1.73 -.128 1.965l.128 .021l.133 .007h2v2h-2l-.007 -.117a1 1 0 0 0 -1.993 .117a2 2 0 0 0 1.85 1.995l.15 .005h2l.15 -.005a2 2 0 0 0 1.844 -1.838l.006 -.157v-2l-.005 -.15a1.988 1.988 0 0 0 -.17 -.667l-.075 -.152l-.019 -.032l.02 -.03a2.01 2.01 0 0 0 .242 -.795l.007 -.174v-2l-.005 -.15a2 2 0 0 0 -1.838 -1.844l-.157 -.006z" /></svg>
+          </span>
+        )}
+  
+        <h3 class="text-lg font-semibold">{item.title}</h3>
+  
+        <p class="mt-2 text-gray-500">{item.description}</p>
+  
+        {item.image && item.image.src && (
+          <img 
+            src={item.image.src} 
+            alt={item.image.alt || 'Feature image'} 
+            class="w-48 h-auto mt-4 rounded-lg shadow-lg"
+            loading="lazy"
+          />
+        )}
+      </div>
+    ))}
+  </div>    
 </WidgetWrapper>

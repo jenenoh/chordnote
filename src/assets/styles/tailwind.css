@@ -18,6 +18,29 @@
   .text-muted {
     color: var(--aw-color-text-muted);
   }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    min-width: 200%; /* Ensures text repeats smoothly */
+    animation: marquee 8s linear infinite;
+  }
+  
+  .text-marquee {
+    font-size: 10.75rem;
+    font-weight: bold;
+    white-space: nowrap;
+    padding-right: 4rem; /* Adjust this to fine-tune spacing */
+  }  
 }
 
 @layer components {
@@ -89,4 +112,11 @@
 
 .dd *:first-child {
   margin-top: 0;
+}
+
+.hero-bg {
+  height: 500px;
+  background-size: cover;
+  background-position: center; /* Or adjust like 'top' or 'bottom' */
+  background-repeat: no-repeat;
 }

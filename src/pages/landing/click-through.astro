@@ -1,41 +1,35 @@
 ---
-import Layout from '~/layouts/LandingLayout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 
-import Hero2 from '~/components/widgets/Hero2.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Hero from '~/components/widgets/Hero.astro';
 
 const metadata = {
-  title: 'Click-through Landing Page Demo',
+  title: 'Try Out Chordnote Page',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero2 Widget ******************* -->
 
-  <Hero2
-    tagline="Click-through Demo"
-    title="Click-through Landing Page: The Perfect Bridge to Conversion!"
-    subtitle="Learn how to design a Click-Through Landing Page that seamlessly guides visitors to your main offer."
-    actions={[
-      { variant: 'primary', text: 'Call to Action', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-      { text: 'Learn more', href: '#' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Click-through Landing Page Hero Image',
-    }}
-  />
+  <Hero
+    tagline="Try Out Chordnote"
+  >
+    <Fragment slot="title">
+      <span class="text-[#638FFF] dark:text-white highlight">Interact </span><span class="hidden xl:inline">with</span><span class="text-[#638FFF] dark:text-white highlight"> Chordnote</span>.
+    </Fragment>
 
-  <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Download Template',
-        href: 'https://github.com/onwidget/astrowind',
-        icon: 'tabler:download',
-      },
-    ]}
-  />
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Discover how Chordnote curates the perfect playlist for your emotions. Test our AI-powered mood detection, explore personalized playlists, and see how music can help manage stress, anxiety, and focus.</span>
+    </Fragment>
+  </Hero>
+
+  <!-- Figma Prototype Embed -->
+  <div class="max-w-5xl mx-auto p-1">
+    <div set:html={`<iframe 
+        class="border rounded-lg shadow-lg w-full h-[600px]" 
+        src="https://embed.figma.com/proto/2SO96jtip7bMRBjjv4WJI3/Music-as-Medicine?node-id=424-4163&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=424%3A4163&embed-host=share" 
+        allowfullscreen>
+      </iframe>`} />
+  </div>
 </Layout>
