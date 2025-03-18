@@ -12,10 +12,10 @@ import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
 
 const appStoreImg = '~/assets/images/app-store.png';
-const appStoreDownloadLink = 'https://github.com/onwidget/astrowind';
+const appStoreDownloadLink = 'https://www.apple.com/app-store/';
 
 const googlePlayImg = '~/assets/images/google-play.png';
-const googlePlayDownloadLink = 'https://github.com/onwidget/astrowind';
+const googlePlayDownloadLink = 'https://play.google.com/store/games?&utm_source=na_Med&utm_medium=hasem&utm_content=Nov0520&utm_campaign=Evergreen&pcampaignid=MKT-EDR-na-us-1710138-Med-hasem-py-Evergreen-Nov0520-Text_Search_BKWS-id_100752_%7CEXA%7CONSEM_kwid_43700074471497970_adgroupid_144807244072_keywordid_kwd-34087548205&gad_source=1&gclid=Cj0KCQjwkN--BhDkARIsAD_mnIqgD0HEz4H8I3cs-rY8l95rWsiVi5YXSH1WZu5cmv7Z_1cMWPKYK-0aAkmpEALw_wcB&gclsrc=aw.ds';
 
 import questionnaireImage from '~/assets/images/questionnaire.png';
 import playlistImage from '~/assets/images/playlist.png';
@@ -38,7 +38,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Explore',
-        href: '#features'
+        href: '#note'
       },
     ]}
 
@@ -58,7 +58,9 @@ const metadata = {
 
   <!-- Note Widget ******************* -->
 
-  <Note />
+  <section id="note">
+    <Note />
+  </section>
 
   <!-- Features Widget *************** -->
 
@@ -245,22 +247,23 @@ const metadata = {
   </Hero>
 
   <!-- CallToAction Widget *********** -->
+  <section id="download">
+    <CallToAction
+      id="download"
+      title="Download our app now!"
+      subtitle="Access a variety of stunning templates, simplify your creative process, and elevate your online presence."
+    >
+      <div slot="actions" class="flex max-w-sm gap-4">
+        <Button variant="link" href={appStoreDownloadLink}>
+          <Image src={appStoreImg} alt="App Store Image" width={200} />
+        </Button>
 
-  <CallToAction
-    id="download"
-    title="Download our app now!"
-    subtitle="Access a variety of stunning templates, simplify your creative process, and elevate your online presence."
-  >
-    <div slot="actions" class="flex max-w-sm gap-4">
-      <Button variant="link" href={appStoreDownloadLink}>
-        <Image src={appStoreImg} alt="App Store Image" width={200} />
-      </Button>
-
-      <Button variant="link" href={googlePlayDownloadLink}>
-        <Image src={googlePlayImg} alt="Google Play Image" width={200} />
-      </Button>
-    </div>
-  </CallToAction>
+        <Button variant="link" href={googlePlayDownloadLink}>
+          <Image src={googlePlayImg} alt="Google Play Image" width={200} />
+        </Button>
+      </div>
+    </CallToAction>
+  </section>
 
   <!-- Newsletter Subscription Section -->
   <section class="bg-blue-50 dark:bg-gray-900 py-12 px-6 md:px-12">
