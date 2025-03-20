@@ -24,6 +24,8 @@ import angryFace from '~/assets/images/angry.png';
 import mehFace from '~/assets/images/meh.png';
 import sadFace from '~/assets/images/sad.png';
 
+import { YouTube } from 'astro-embed';
+
 const metadata = {
   title: 'Chordnote',
   ignoreTitleTemplate: true,
@@ -234,9 +236,7 @@ const metadata = {
    ]}
  />
 
- <Hero
-    tagline="Video Pitch"
-    >
+  <Hero tagline="Video Pitch">
     <Fragment slot="title">
       The Vision Behind Chordnote
     </Fragment>
@@ -244,6 +244,17 @@ const metadata = {
     <Fragment slot="subtitle">
       Get an inside look at how Chordnote was created and the research that shaped it in this 10-minute pitch video.
     </Fragment>
+
+    <Fragment slot="image">
+      <YouTube id="https://youtu.be/xUM4RYYwjxw?si=8BuQtyeuwtoB2Srg"/>
+      <style is:inline>
+        lite-youtube {
+          margin: 0 auto;
+          max-width: 100%;
+        }
+      </style>
+    </Fragment>
+
   </Hero>
 
   <!-- CallToAction Widget *********** -->
